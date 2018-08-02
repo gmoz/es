@@ -48,7 +48,6 @@ def dataWorker():
     while True:
         try:
             data = dataQueue.get()
-            syslog = {}
 
             # Sample: <29>Aug  2 11:06:44 N310500 flcdlock: 105: 已重新整理「裝置鎖定原則」。
             ip = data[0]
@@ -70,6 +69,7 @@ def dataWorker():
             receivedTime = str(now.strftime("%Y-%m-%d %H:%M:%S"))
 
             # to json
+            syslog = {}
             syslog["sourceIP"] = ip
             syslog["receivedTime"] = receivedTime
             syslog["syslogTime"] = syslogTime
