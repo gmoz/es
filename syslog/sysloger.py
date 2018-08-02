@@ -29,7 +29,7 @@ def dayStrToDateDay(str="1970 01 01 00:00:00"):
 
 
 # put data to ES
-def esWork():
+def esWorker():
     headers = {'Content-Type': 'application/json'}
     while True:
         result = ""
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     dt = threading.Thread(target=dataWorker)
     dt.start()
 
-    et = threading.Thread(target=esWork)
+    et = threading.Thread(target=esWorker)
     et.start()
 
     print("Syslog server start")
